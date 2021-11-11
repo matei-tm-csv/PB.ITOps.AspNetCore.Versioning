@@ -27,14 +27,6 @@ namespace ApiVersioningExample.DependencyInjection
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 options.IncludeXmlComments(xmlPath);
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Description = "Authorization header using Bearer scheme",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header
-                });
-                
-                options.DocumentFilter<SwaggerSecurityRequirementsDocumentFilter>();
             });
 
             return services;
